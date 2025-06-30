@@ -1,0 +1,102 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+.navbar-brand, .nav-link {
+  color: #2c3e50 !important;
+  font-weight: 500;
+}
+.nav-link:hover {
+  color: #007bff !important;
+}
+
+/* Hero Section */
+.hero {
+  background-color: #f5f7fa;
+  padding: 80px 20px;
+  text-align: center;
+}
+.hero h1 {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #2c3e50; /* abu gelap / netral */
+}
+
+.hero h1 span {
+  color: #007bff;
+}
+.hero p {
+  font-size: 16px;
+  color: #555;
+}
+.btn-baca {
+  background-color: #007bff;
+  color: #fff;
+  font-weight: 500;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.btn-baca:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+/* Novel Section */
+.novel-section {
+  padding: 60px 20px;
+  background-color: #ffffff;
+}
+.novel-section h2 {
+  color: #2c3e50;
+  font-weight: 600;
+  margin-bottom: 40px;
+}
+
+/* Card */
+.card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+.card-title {
+  color: #2c3e50;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.card-body p.text-muted {
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+.rating {
+  color: #f39c12;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* Buttons inside cards */
+.card .btn-baca {
+  padding: 6px 14px;
+  font-size: 14px;
+  border-radius: 6px;
+}
+
+/* Input Pencarian */
+#inputPencarian {
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  padding: 8px 14px;
+  font-size: 14px;
+}
+
