@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Literasia</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #ffffff;
+      color: #2c3e50;
+    }
+
+    .navbar {
+      background-color: #ffffff;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .navbar-brand,
+    .nav-link {
+      color: #2c3e50 !important;
+    }
+
+    .nav-link:hover {
+      color: #007bff !important;
+    }
+
+    .hero {
+      background-color: #f8f9fa;
+      color: #2c3e50;
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .hero h1 span {
+      color: #007bff;
+    }
+
+    .btn-baca {
+      background-color: #007bff;
+      color: #ffffff;
+      font-weight: 500;
+      border: none;
+      border-radius: 6px;
+    }
+
+    .btn-baca:hover {
+      background-color: #0056b3;
+    }
+
+    .novel-section {
+      padding: 60px 20px;
+      background-color: #f5f5f5;
+    }
+
+    .novel-section h2 {
+      color: #2c3e50;
+      font-weight: 600;
+      margin-bottom: 40px;
+    }
+
+    .card {
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .card-title {
+      color: #2c3e50;
+      font-weight: 600;
+    }
+
+    .rating {
+      color: #f39c12;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .modal-img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+
+    .modal-body {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .modal-body .left {
+      flex: 1 1 200px;
+    }
+
+    .modal-body .right {
+      flex: 2 1 300px;
+    }
+
+    .genre {
+      font-size: 14px;
+      color: #7f8c8d;
+      font-style: italic;
+    }
+
+    .btn-warning {
+      background-color: #007bff;
+      border: none;
+      color: white;
+    }
+
+    .btn-warning:hover {
+      background-color: #0056b3;
+    }
+  </style>
+
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg shadow">
+    <div class="container">
+      <a class="navbar-brand" href="#">Literasia</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon text-white"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Beranda</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="genre.html">Genre</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="penulis.html">Penulis</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="tentang.html">Tentang</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero text-white d-flex align-items-center" style="
+        min-height: 70vh;
+        background: linear-gradient(135deg, #2d2e83, #4b33a8);
+      ">
+    <div class="container text-center">
+      <h1 class="fw-bold display-4 mb-3">
+        Selamat Datang di <span class="text-warning">Literasia</span>
+      </h1>
+      <p class="lead mb-4 px-md-5">
+        Jelajahi ribuan novel pilihan dari penulis terbaik Indonesia — kisah
+        penuh imajinasi, cinta, perjuangan, dan makna.
+      </p>
+      <a href="#rekomendasi" class="btn btn-warning text-dark fw-semibold px-4 py-2 rounded-pill shadow-sm">
+        📖 Mulai Baca Sekarang
+      </a>
+    </div>
+  </section>
+
+  <!-- List Novel -->
+  <section class="novel-section">
+    <div class="container">
+      <h2 class="text-center">Rekomendasi Novel</h2>
+      <div class="mb-4 text-center">
+        <input type="text" id="inputPencarian" class="form-control w-50 mx-auto" placeholder="Cari judul novel..." />
+      </div>
+      <div class="mb-2 text-center">
+        <small id="hasilKosong" class="text-muted" style="display: none">🔍 Novel tidak tersedia.</small>
+      </div>
+
+      <div class="row g-4">
+        <!-- the midnight library -->
+        <div class="col-md-4 col-lg-3">
+          <div class="card h-100 shadow-sm">
+            <img
+              src="https://image.gramedia.net/rs:fit:0:0/plain/https://cdn.gramedia.com/uploads/items/9786020649320_the_midnight_library_cov.jpg"
+              class="card-img-top" alt="Bumi" />
+            <div class="card-body text-center">
+              <h5 class="card-title">The Midnight Library</h5>
+              <p class="text-muted">Matt Haig</p>
+              <p class="rating">⭐ 4.7</p>
+              <button class="btn btn-sm btn-baca" data-bs-toggle="modal" data-bs-target="#modallibrary">
+                Baca Sekarang
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bumi Manusia -->
+        <div class="col-md-4 col-lg-3">
+          <div class="card h-100 shadow-sm">
+            <img
+              src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1565658920i/1398034.jpg"
+              class="card-img-top" alt="Bumi Manusia" />
+            <div class="card-body text-center">
+              <h5 class="card-title">Bumi Manusia</h5>
+              <p class="text-muted">Pramoedya Ananta Toer</p>
+              <p class="rating">⭐ 4.9</p>
+              <button class="btn btn-sm btn-baca" data-bs-toggle="modal" data-bs-target="#modalBM">
+                Baca Sekarang
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hujan -->
+        <div class="col-md-4 col-lg-3">
+          <div class="card h-100 shadow-sm">
+            <img
+              src="https://image.gramedia.net/rs:fit:0:0/plain/https://cdn.gramedia.com/uploads/items/img20220905_11493451.jpg"
+              class="card-img-top" alt="Hujan" />
+            <div class="card-body text-center">
+              <h5 class="card-title">Hujan</h5>
+              <p class="text-muted">Tere Liye</p>
+              <p class="rating">⭐ 4.8</p>
+              <button class="btn btn-sm btn-baca" data-bs-toggle="modal" data-bs-target="#modalHujan">
+                Baca Sekarang
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Laut Bercerita -->
+        <div class="col-md-4 col-lg-3">
+          <div class="card h-100 shadow-sm">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKGZdWun3X0ikBpjhOTuQhKTraNrSlk_22VQ&s"
+              class="card-img-top" alt="Laut Bercerita" />
+            <div class="card-body text-center">
+              <h5 class="card-title">Laut Bercerita</h5>
+              <p class="text-muted">Leila S. Chudori</p>
+              <p class="rating">⭐ 4.7</p>
+              <button class="btn btn-sm btn-baca" data-bs-toggle="modal" data-bs-target="#modalLaut">
+                Baca Sekarang
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- A Place a Called Perfect -->
+        <div class="col-md-4 col-lg-3">
+          <div class="card h-100 shadow-sm">
+            <img src="https://s3-ap-southeast-1.amazonaws.com/ebook-previews/72116/242693/1.jpg" class="card-img-top"
+              alt="A Place a Called Perfect" />
+            <div class="card-body text-center">
+              <h5 class="card-title">A Place a Called Perfect</h5>
+              <p class="text-muted">Helena Duggan</p>
+              <p class="rating">⭐ 4.6</p>
+              <button class="btn btn-sm btn-baca" data-bs-toggle="modal" data-bs-target="#modalGeez">
+                Baca Sekarang
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pulang -->
+        <div class="col-md-4 col-lg-3">
+          <div class="card h-100 shadow-sm">
+            <img src="https://cdn.gramedia.com/uploads/items/pulang_tere_liye.jpeg" class="card-img-top" alt="Pulang" />
+            <div class="card-body text-center">
+              <h5 class="card-title">Pulang</h5>
+              <p class="text-muted">Tere Liye</p>
+              <p class="rating">⭐ 4.8</p>
+              <button class="btn btn-sm btn-baca" data-bs-toggle="modal" data-bs-target="#modalPulang">
+                Baca Sekarang
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pergi -->
+        <div class="col-md-4 col-lg-3">
+          <div class="card h-100 shadow-sm">
+            <img src="https://cdn.gramedia.com/uploads/items/pergi_tere_liye.jpeg" class="card-img-top" alt="Pergi" />
+            <div class="card-body text-center">
+              <h5 class="card-title">Pergi</h5>
+              <p class="text-muted">Tere Liye</p>
+              <p class="rating">⭐ 4.9</p>
+              <button class="btn btn-sm btn-baca" data-bs-toggle="modal" data-bs-target="#modalAtomic">
+                Baca Sekarang
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- negeri para bedebah -->
+        <div class="col-md-4 col-lg-3">
+          <div class="card h-100 shadow-sm">
+            <img
+              src="https://image.gramedia.net/rs:fit:0:0/plain/https://cdn.gramedia.com/uploads/picture_meta/2023/4/10/hwwjhrajpbdc4ctutxpzxa.jpg"
+              class="card-img-top" alt="Negeri para bedebah" />
+            <div class="card-body text-center">
+              <h5 class="card-title">Negeri Para Bedebah</h5>
+              <p class="text-muted">Tere Liye</p>
+              <p class="rating">⭐ 4.8</p>
+              <button class="btn btn-sm btn-baca" data-bs-toggle="modal" data-bs-target="#modalTeras">
+                Baca Sekarang
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Modal The Midnight Library -->
+    <div class="modal fade" id="modallibrary" tabindex="-1">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">The Midnight Library - Matt Haige</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <div class="left">
+              <img
+                src="https://image.gramedia.net/rs:fit:0:0/plain/https://cdn.gramedia.com/uploads/items/9786020649320_the_midnight_library_cov.jpg"
+                alt="Bumi" class="modal-img" />
+            </div>
+            <div class="right">
+              <p><strong>Genre:</strong> Fantasi</p>
+              <p>
+                <strong>Sinopsis:</strong> Nora Seed, seorang wanita yang merasa penuh penyesalan dan mencoba mengakhiri
+                hidupnya. Namun, ia malah mendapati dirinya berada di sebuah perpustakaan yang terletak di antara hidup
+                dan mati, dengan setiap buku yang berisi kemungkinan hidup berbeda yang bisa ia jalani. Dalam
+                perpustakaan ini, Nora memiliki kesempatan untuk menjelajahi berbagai kehidupan yang mungkin terjadi
+                jika ia membuat pilihan yang berbeda.
+              </p>
+              <a href="pdf/The Midnight Library.pdf" class="btn btn-warning mt-3" download>📥 Download PDF</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Bumi Manusia -->
+    <div class="modal fade" id="modalBM" tabindex="-1">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Bumi Manusia - Pramoedya Ananta Toer</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <div class="left">
+              <img
+                src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1565658920i/1398034.jpg"
+                alt="Bumi Manusia" class="modal-img" />
+            </div>
+            <div class="right">
+              <p><strong>Genre:</strong> Sejarah, Drama</p>
+              <p>
+                <strong>Sinopsis:</strong> Kisah Minke, seorang pemuda pribumi
+                yang berani berpikir bebas di tengah kolonialisme Belanda, serta
+                kisah cintanya dengan Annelies yang menguras emosi.
+              </p>
+              <a href="pdf/bumi manusia.pdf" class="btn btn-warning mt-3" download>📥 Download PDF</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Hujan -->
+    <div class="modal fade" id="modalHujan" tabindex="-1">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Hujan - Tere Liye</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <div class="left">
+              <img
+                src="https://image.gramedia.net/rs:fit:0:0/plain/https://cdn.gramedia.com/uploads/items/img20220905_11493451.jpg"
+                alt="Hujan" class="modal-img" />
+            </div>
+            <div class="right">
+              <p><strong>Genre:</strong> Fiksi, Drama, Romantis</p>
+              <p>
+                <strong>Sinopsis:</strong> Lail, seorang gadis muda yang
+                kehilangan segalanya akibat bencana, bertemu dengan Esok yang
+                mengubah hidupnya. Sebuah kisah cinta dan pengorbanan dalam
+                dunia masa depan.
+              </p>
+              <a href="pdf/hujan.pdf" class="btn btn-warning mt-3" download>📥 Download PDF</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Laut Bercerita -->
+    <div class="modal fade" id="modalLaut" tabindex="-1">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Laut Bercerita - Leila S. Chudori</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <div class="left">
+              <img
+                src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1516602134i/36393774.jpg"
+                alt="Laut Bercerita" class="modal-img" />
+            </div>
+            <div class="right">
+              <p><strong>Genre:</strong> Politik, Sejarah, Drama</p>
+              <p>
+                <strong>Sinopsis:</strong> Cerita tentang Biru Laut dan
+                perjuangannya sebagai aktivis mahasiswa yang diculik rezim.
+                Sebuah pengingat akan masa kelam pelanggaran HAM di Indonesia.
+              </p>
+              <a href="pdf/laut bercerita.pdf" class="btn btn-warning mt-3" download>📥 Download PDF</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- A Place Called Perfect -->
+    <div class="modal fade" id="modalGeez" tabindex="-1">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">A Place Called Perfect - Helena Duggan</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <div class="left">
+              <img
+                src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1491819814i/34828626.jpg"
+                alt="Geez & Ann" class="modal-img" />
+            </div>
+            <div class="right">
+              <p><strong>Genre:</strong> Fantasi, Misteri, Fiksi, Thriller</p>
+              <p>
+                <strong>Sinopsis:</strong> seorang gadis bernama Violet yang pindah ke kota bernama Perfect. Kota ini
+                tampak sempurna, tetapi semua penduduknya menjadi buta setelah beberapa waktu dan membutuhkan kacamata
+                khusus untuk dapat melihat. Violet mulai menyadari ada sesuatu yang aneh di kota itu, termasuk
+                suara-suara misterius, jam malam, dan perubahan perilaku ibunya. Ia kemudian bertemu Boy dan mengungkap
+                rahasia kelam kota tersebut serta hilangnya beberapa orang, termasuk ayahnya.
+              </p>
+              <a href="pdf/a place called perfect.pdf" class="btn btn-warning mt-3" download>📥 Download PDF</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Pulang -->
+    <div class="modal fade" id="modalPulang" tabindex="-1">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Pulang - Tere Liye</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <div class="left">
+              <img
+                src="https://image.gramedia.net/rs:fit:0:0/plain/https://cdn.gramedia.com/uploads/items/pulang_tere_liye.jpeg"
+                alt="Pulang" class="modal-img" />
+            </div>
+            <div class="right">
+              <p><strong>Genre:</strong> Thriller, Aksi, Drama</p>
+              <p>
+                <strong>Sinopsis:</strong> Berkisah tentang Bujang, anak muda
+                yang terlibat dalam organisasi bayangan, dan perjalanan hidupnya
+                yang keras dan penuh makna menuju jati diri dan tujuan hidup.
+              </p>
+              <a href="pdf/pulang.pdf" class="btn btn-warning mt-3" download>📥 Download PDF</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Pergi -->
+    <div class="modal fade" id="modalAtomic" tabindex="-1">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Pergi - Tere Liye</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <div class="left">
+              <img
+                src="https://image.gramedia.net/rs:fit:0:0/plain/https://cdn.gramedia.com/uploads/items/pergi_tere_liye.jpeg"
+                alt="Pergi" class="modal-img" />
+            </div>
+            <div class="right">
+              <p><strong>Genre:</strong> Thriller, Aksi, Drama</p>
+              <p>
+                <strong>Sinopsis:</strong> Bujang, yang telah menjadi Tauke Besar di Keluarga Tong, sebuah keluarga yang
+                beroperasi di dunia shadow economy, menghadapi tantangan baru dan perjalanan untuk menemukan tujuan
+                hidupnya.
+              </p>
+              <a href="pdf/pergi.pdf" class="btn btn-warning mt-3" download>📥 Download PDF</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Negeri Para Bedebah -->
+    <div class="modal fade" id="modalTeras" tabindex="-1">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Negeri Para Bedebah - Tere Liye</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <div class="left">
+              <img
+                src="https://image.gramedia.net/rs:fit:0:0/plain/https://cdn.gramedia.com/uploads/picture_meta/2023/4/10/hwwjhrajpbdc4ctutxpzxa.jpg"
+                alt="Negeri Para Bedebah" class="modal-img" />
+            </div>
+            <div class="right">
+              <p><strong>Genre:</strong> Dewasa, Aksi, Thriller</p>
+              <p>
+                <strong>Sinopsis:</strong> Di negeri para bedebah, kisah fiksi kalah seru dibanding kisah nyata. Di
+                negeri para bedebah, musang berbulu domba berkeliaran di halaman rumah. Tetapi setidaknya, Kawan, di
+                negeri para bedebah, petarung sejati tidak akan pernah berkhianat.
+              </p>
+              <a href="pdf/negeri para bedebah.pdf" class="btn btn-warning mt-3" download>📥 Download PDF</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyDydODw_h-mMMPimqzZ8phyr4YQb_ay6RY",
+    authDomain: "literasia-novel-89bd1.firebaseapp.com",
+    projectId: "literasia-novel-89bd1",
+    storageBucket: "literasia-novel-89bd1.firebasestorage.app",
+    messagingSenderId: "838079208893",
+    appId: "1:838079208893:web:a97a34cc0a4bb4c06006d4",
+    measurementId: "G-KPNRGBQB8Z"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+ 
+      document
+        .getElementById("inputPencarian")
+        .addEventListener("input", function () {
+          const keyword = this.value.toLowerCase();
+          const cards = document.querySelectorAll(".novel-section .card");
+          let ditemukan = 0;
+
+          cards.forEach((card) => {
+            const title = card
+              .querySelector(".card-title")
+              .textContent.toLowerCase();
+            if (title.includes(keyword)) {
+              card.parentElement.style.display = "block";
+              ditemukan++;
+            } else {
+              card.parentElement.style.display = "none";
+            }
+          });
+
+          document.getElementById("hasilKosong").style.display =
+            ditemukan === 0 ? "block" : "none";
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

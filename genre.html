@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Genre - Good Dreamer</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #ffffff, #5d5b5b);
+      color: #ffffff;
+    }
+
+    .genre-hero {
+      padding: 100px 20px 50px;
+      background: linear-gradient(to right, #2d2e83, #4b33a8);
+      color: #fff;
+      text-align: center;
+    }
+
+    .genre-hero h1 {
+      font-size: 48px;
+      font-weight: 800;
+      color: #ffce63;
+    }
+
+    .genre-hero p {
+      font-size: 18px;
+      margin-top: 10px;
+      color: #ffffff;
+    }
+
+    .genre-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 50px 30px;
+    }
+
+    .genre-item {
+      background-color: #ffce63;
+      padding: 20px 30px;
+      border-radius: 16px;
+      font-weight: 600;
+      font-size: 18px;
+      color: #2d2e83;
+      min-width: 160px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .genre-item:hover {
+      background-color: #f3ba28;
+      transform: translateY(-5px);
+    }
+
+    .novel-section {
+      background: linear-gradient(to right, #2f2d35, #2d2e83);
+      padding: 60px 20px;
+      color: white;
+    }
+
+    .novel-section h2 {
+      color: white;
+      font-weight: 700;
+      margin-bottom: 40px;
+    }
+
+    .card-title {
+      color: #2d2e83;
+      font-weight: bold;
+    }
+
+    .card .badge {
+      font-size: 14px;
+      padding: 6px 12px;
+      background: #ffce63;
+      color: #2d2e83;
+    }
+
+    .back-link {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .back-link a {
+      color: #ffce63;
+      font-weight: bold;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .back-link a:hover {
+      color: #ffffff;
+    }
+  </style>
+</head>
+
+<body>
+  <section class="genre-hero">
+    <h1>📚 Genre Novel</h1>
+    <p>Jelajahi berbagai genre menarik yang tersedia di Literasia!</p>
+  </section>
+
+  <section class="genre-list">
+    <div class="genre-item">Fantasi</div>
+    <div class="genre-item">Romantis</div>
+    <div class="genre-item">Drama</div>
+    <div class="genre-item">Self-Improvement</div>
+    <div class="genre-item">Thriller</div>
+  </section>
+
+  <section class="container my-5 novel-section">
+    <h2 class="text-center mb-4">Daftar Novel</h2>
+    <div class="row" id="novel-list"></div>
+  </section>
+
+  <div class="back-link">
+    <a href="index.html">⬅️ Kembali ke Beranda</a>
+  </div>
+
+  <script>
+    const novels = [
+      {
+        title: "The Alpha Girl's Guite",
+        author: "Henry Manampiring",
+        genre: "Self-Improvement",
+        img: "https://cdn.gramedia.com/uploads/items/THE_ALPHA_GIRLS_GUIDE.jpg",
+        pdf: "pdf/alpha.pdf"
+      },
+      {
+        title: "The Midnight Library",
+        author: "Matt Haig",
+        genre: "Fantasi",
+        img: "https://image.gramedia.net/rs:fit:0:0/plain/https://cdn.gramedia.com/uploads/items/img20200709_15510266.jpg",
+        pdf: "pdf/the-midnight-library.pdf"
+      },
+      {
+        title: "Hujan",
+        author: "Tere Liye",
+        genre: "Romantis",
+        img: "https://image.gramedia.net/rs:fit:0:0/plain/https://cdn.gramedia.com/uploads/items/img20220905_11493451.jpg",
+        pdf: "pdf/hujan.pdf"
+      },
+      {
+        title: "Pulang",
+        author: "Tere Liye",
+        genre: "Thriller",
+        img: "https://cdn.gramedia.com/uploads/items/pulang_tere_liye.jpeg",
+        pdf: "pdf/pulang.pdf"
+      },
+      {
+        title: "Laut Bercerita",
+        author: "Leila S. Chudori",
+        genre: "Drama",
+        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKGZdWun3X0ikBpjhOTuQhKTraNrSlk_22VQ&s",
+        pdf: "pdf/laut-bercerita.pdf"
+      },
+      {
+        title: "Pergi",
+        author: "Tere Liye",
+        genre: "Thriller",
+        img: "https://cdn.gramedia.com/uploads/items/pergi_tere_liye.jpeg",
+        pdf: "pdf/pergi.pdf"
+      },
+      {
+        title: "A Place Called Perfect",
+        author: "Helena Duggan",
+        genre: "Fantasi",
+        img: "https://s3-ap-southeast-1.amazonaws.com/ebook-previews/72116/242693/1.jpg",
+        pdf: "pdf/perfect.pdf"
+      },
+      {
+        title: "Negeri Para Bedebah",
+        author: "Tere Liye",
+        genre: "Thriller",
+        img: "https://image.gramedia.net/rs:fit:0:0/plain/https://cdn.gramedia.com/uploads/picture_meta/2023/4/10/hwwjhrajpbdc4ctutxpzxa.jpg",
+        pdf: "pdf/negeri-para-bedebah.pdf"
+      },
+      {
+        title: "Bumi Manusia",
+        author: "Pramoedya Ananta Toer",
+        genre: "Drama",
+        img: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1565658920i/1398034.jpg",
+        pdf: "pdf/bumi-manusia.pdf"
+      },
+      {
+        title: "Peanance",
+        author: "Minato Kanae",
+        genre: "Thriller",
+        img: "https://image.gramedia.net/rs:fit:0:0/plain/https://cdn.gramedia.com/uploads/items/img20200709_15510266.jpg",
+        pdf: "pdf/peanance.pdf"
+      }
+    ];
+
+    const listContainer = document.getElementById("novel-list");
+
+    function tampilkanNovel(genreDipilih) {
+      listContainer.innerHTML = "";
+      const hasil = novels.filter((n) => n.genre === genreDipilih);
+
+      if (hasil.length === 0) {
+        listContainer.innerHTML = `<p class="text-center text-muted">📕 Tidak ada novel untuk genre <strong>${genreDipilih}</strong>.</p>`;
+        return;
+      }
+
+      hasil.forEach((novel) => {
+        listContainer.innerHTML += `
+          <div class="col-md-4 mb-4">
+            <div class="card shadow-sm h-100">
+              <img src="${novel.img}" class="card-img-top" alt="${novel.title}">
+              <div class="card-body text-center">
+                <h5 class="card-title">${novel.title}</h5>
+                <p class="text-muted">${novel.author}</p>
+                <div class="d-flex justify-content-center gap-2 flex-wrap mt-3">
+                  <span class="badge bg-primary">${novel.genre}</span>
+                  ${novel.pdf
+            ? `<a href="${novel.pdf}" class="btn btn-warning btn-sm" download>📥 Download PDF</a>`
+            : ""
+          }
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      });
+    }
+
+    document.querySelectorAll(".genre-item").forEach((item) => {
+      item.addEventListener("click", () => {
+        const genre = item.textContent.trim();
+        tampilkanNovel(genre);
+        window.scrollTo({
+          top: listContainer.offsetTop - 100,
+          behavior: "smooth",
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>
